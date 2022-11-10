@@ -28,27 +28,27 @@ let computerNumber = 0;
 let board = [one, two, three, four, five, six, seven, eight, nine];
 //enable and disable used on board to start and stop clicking
 function disableBoard() {
-  one.disabled = true;
-  two.disabled = true;
-  three.disabled = true;
-  four.disabled = true;
-  five.disabled = true;
-  six.disabled = true;
-  seven.disabled = true;
-  eight.disabled = true;
-  nine.disabled = true;
+  (one.disabled = true),
+    (two.disabled = true),
+    (three.disabled = true),
+    (four.disabled = true);
+  (five.disabled = true),
+    (six.disabled = true),
+    (seven.disabled = true),
+    (eight.disabled = true),
+    (nine.disabled = true);
 }
-disableBoard()
+disableBoard();
 function enableBoard() {
-  one.disabled = false;
-  two.disabled = false;
-  three.disabled = false;
-  four.disabled = false;
-  five.disabled = false;
-  six.disabled = false;
-  seven.disabled = false;
-  eight.disabled = false;
-  nine.disabled = false;
+  (one.disabled = false),
+    (two.disabled = false),
+    (three.disabled = false),
+    (four.disabled = false);
+  (five.disabled = false),
+    (six.disabled = false),
+    (seven.disabled = false),
+    (eight.disabled = false),
+    (nine.disabled = false);
 }
 //randomClick used to generate random number and decide turn
 function randomClick() {
@@ -85,98 +85,71 @@ function turns(event) {
 }
 //check used to see if someone won
 function check() {
-  if (one.innerText == "X" && two.innerText == "X" && three.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
-  if (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
   if (
-    seven.innerText == "X" &&
-    eight.innerText == "X" &&
-    nine.innerText == "X"
+    (one.innerText == "X" && two.innerText == "X" && three.innerText == "X") ||
+    (one.innerText == "O" && two.innerText == "O" && three.innerText == "O")
   ) {
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
-  if (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
-  if (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
-  if (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") {
-    Names.innerText = `${value1} has won!`;
-    disableBoard();
-    return;
-  }
   if (
-    (three.innerText == "X") & (five.innerText == "X") &&
-    seven.innerText == "X"
+    (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") ||
+    (four.innerText == "O" && five.innerText == "O" && six.innerText == "O")
   ) {
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (one.innerText == "O" && two.innerText == "O" && three.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
-    disableBoard();
-    return;
-  }
-  if (four.innerText == "O" && five.innerText == "O" && six.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
+  if (
+    (seven.innerText == "X" &&
+      eight.innerText == "X" &&
+      nine.innerText == "X") ||
+    (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O")
+  ) {
+    Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
   if (
-    seven.innerText == "O" &&
-    eight.innerText == "O" &&
-    nine.innerText == "O"
+    (one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") ||
+    (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O")
   ) {
-    Names.innerText = `${value2} has won!`;
-    disableBoard();
-    return;
-  }
-  if (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
-    disableBoard();
-    return;
-  }
-  if (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
-    disableBoard();
-    return;
-  }
-  if (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
-    disableBoard();
-    return;
-  }
-  if (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O") {
-    Names.innerText = `${value2} has won!`;
+    Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
   if (
-    three.innerText == "O" &&
-    five.innerText == "O" &&
-    seven.innerText == "O"
+    (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") ||
+    (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O")
   ) {
-    Names.innerText = `${value2} has won!`;
+    Names.innerText = `${value1} has won!`;
+    disableBoard();
+    return;
+  }
+  if (
+    (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") ||
+    (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O")
+  ) {
+    Names.innerText = `${value1} has won!`;
+    disableBoard();
+    return;
+  }
+  if (
+    (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") ||
+    (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O")
+  ) {
+    Names.innerText = `${value1} has won!`;
+    disableBoard();
+    return;
+  }
+  if (
+    (three.innerText == "X" &&
+      five.innerText == "X" &&
+      seven.innerText == "X") ||
+    (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O")
+  ) {
+    Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
@@ -207,7 +180,7 @@ function computerTurn(event) {
         continue;
       } else {
         pick.innerText = "O";
-        pick.disabled = true
+        pick.disabled = true;
         check();
         return;
       }
@@ -219,17 +192,17 @@ div.addEventListener("click", turns);
 computer.addEventListener("click", vsComputer);
 random.addEventListener("click", randomClick);
 submit1.addEventListener("click", function () {
-  value1 = p1.value;
-  p1.value = "";
-  if (divp2.className == "hide") {
-    p1.value = value1;
+  p1.value = value1;
+  if (divp2.className === "hide") {
+    console.log("hi")
+    value1 = p1.value;
     Names.innerText = `${value1}'s turn`;
     p1.value = "";
   }
 });
 submit2.addEventListener("click", function () {
   value2 = p2.value;
-  p2.value = "";
+  p2.value = value;
   computer.className = "hide";
   div.addEventListener("click", turns);
 });
@@ -246,6 +219,8 @@ reset.addEventListener("click", function () {
   nine.innerText = "";
   value1 = "";
   value2 = "";
+  p1.value = "";
+  p2.value = "";
   Names.innerText = "";
   disableBoard();
   random.className = "random";
