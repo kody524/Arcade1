@@ -1,15 +1,39 @@
-body {
-  margin: 0;
-}
 
-input#names {
-  margin: 2px;
+body{
+margin: 0;
+background-color: lightseagreen;
+}
+span#Names {
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+#title{
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 370px;
+  font-weight: bolder
+}
+.playerText{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+header#top > button:hover{
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+}
+#submitButton2:hover{
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
 }
 #grid {
   display: flex;
   flex-wrap: wrap;
-  height: 250px;
+  height: 50px;
   width: 800px;
+  margin-left: 380px;
+
 }
 .cell {
   flex: 0 0 225px;
@@ -18,10 +42,33 @@ input#names {
   border-style: solid;
   border-width: 1px;
   border-color: black;
+  border-top: none;
+  border-width: 1px;
+  background-color: lightseagreen;
 }
-.hide {
+.cell:nth-child(n+7){
+  border-bottom: none;
+}
+.cell:nth-child(1){
+  border-left: none;
+}
+.cell:nth-child(4){
+  border-left: none;
+}
+.cell:nth-child(7){
+  border-left: none;
+}
+.cell:nth-child(3n){
+  border-right: none;
+}
+button.cell{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 75px
+}
+.hide{
   display: none;
 }
+
 
 /* Default Design */
 .gfg-div {

@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <title>Tic Tac Toe</title>
   </head>
 <header id="top">
-  <span>Player1:</span><input id="name1" type="text"><button id = 'submitButton1'type="submit">Submit</button>
+  <span class="playerText">Player1:</span><input id="name1" type="text"><button id = 'submitButton1'type="submit">Submit</button>
+  <span id="title">Tic Tac Toe</span>
   <br>
   <div id="p2" class="p2">
-  <span>Player2:</span><input id="name2" type="text"><button id = 'submitButton2' type="submit">Submit</button>
+  <span class="playerText">Player2:</span><input id="name2" type="text"><button id = 'submitButton2' type="submit">Submit</button>
   </div>
   <br>
   <button id="random">Random</button><button id="reset">Reset</button><button id="computer">VsComputer</button>
-  <h1 id="Names"></h1>
+  <br>
+  <span id="Names"></span>
   </header>
   <body>
   <div id="grid">
@@ -27,7 +30,6 @@
   <button id="cell8" class="cell"></button>
   <button id="cell9" class="cell"></button>
   </div>
-</body>
     <script src="app.js"></script>
   </body>
 </html>

@@ -207,6 +207,7 @@ function computerTurn(event) {
         continue;
       } else {
         pick.innerText = "O";
+        pick.disabled = true
         check();
         return;
       }
