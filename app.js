@@ -23,16 +23,17 @@ let value1;
 let value2;
 //number used for swapping turns
 let number;
+let count = 0
 //computerNumber used so player 1 is always first
 let computerNumber = 0;
 let board = [one, two, three, four, five, six, seven, eight, nine];
 //enable and disable used on board to start and stop clicking
 function disableBoard() {
-  (one.disabled = true),
+    (one.disabled = true),
     (two.disabled = true),
     (three.disabled = true),
     (four.disabled = true);
-  (five.disabled = true),
+    (five.disabled = true),
     (six.disabled = true),
     (seven.disabled = true),
     (eight.disabled = true),
@@ -40,11 +41,11 @@ function disableBoard() {
 }
 disableBoard();
 function enableBoard() {
-  (one.disabled = false),
+    (one.disabled = false),
     (two.disabled = false),
     (three.disabled = false),
     (four.disabled = false);
-  (five.disabled = false),
+    (five.disabled = false),
     (six.disabled = false),
     (seven.disabled = false),
     (eight.disabled = false),
@@ -65,6 +66,8 @@ function randomClick() {
 }
 //turns is used on each click to swap turns and change names and disbale buttons
 function turns(event) {
+  count = count+1
+  console.log(count)
   if (divp2.className == "p2") {
     let target = event.target;
     if (number === 0) {
@@ -89,6 +92,7 @@ function check() {
     (one.innerText == "X" && two.innerText == "X" && three.innerText == "X") ||
     (one.innerText == "O" && two.innerText == "O" && three.innerText == "O")
   ) {
+     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
@@ -97,16 +101,16 @@ function check() {
     (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") ||
     (four.innerText == "O" && five.innerText == "O" && six.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
   if (
-    (seven.innerText == "X" &&
-      eight.innerText == "X" &&
-      nine.innerText == "X") ||
+    (seven.innerText == "X" &&eight.innerText == "X" &&nine.innerText == "X") ||
     (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
@@ -115,6 +119,7 @@ function check() {
     (one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") ||
     (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
@@ -123,6 +128,7 @@ function check() {
     (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") ||
     (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
@@ -131,6 +137,7 @@ function check() {
     (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") ||
     (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
@@ -139,27 +146,27 @@ function check() {
     (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") ||
     (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
   if (
-    (three.innerText == "X" &&
-      five.innerText == "X" &&
-      seven.innerText == "X") ||
+    (three.innerText == "X" &&five.innerText == "X" &&seven.innerText == "X") ||
     (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O")
   ) {
+    count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
+  }
+  if(count===9){
+    Names.innerText = "Draw"
   }
 }
 //vsComputer used if computer button is clicked
 function vsComputer() {
   divp2.className = "hide";
-  value1 = p1.value;
-  p1.value = "";
-  value2 = "computer";
   div.addEventListener("click", computerTurn);
   div.removeEventListener("click", turns);
   random.removeEventListener("click", randomClick);
@@ -192,17 +199,19 @@ div.addEventListener("click", turns);
 computer.addEventListener("click", vsComputer);
 random.addEventListener("click", randomClick);
 submit1.addEventListener("click", function () {
-  p1.value = value1;
-  if (divp2.className === "hide") {
+  if (divp2.className == "hide") {
     console.log("hi")
     value1 = p1.value;
-    Names.innerText = `${value1}'s turn`;
-    p1.value = "";
+    p1.value = ""
+    Names.innerText = `${value1}'s turn`
+  }else{
+    value1 = p1.value;
+  p1.value = "";
   }
 });
 submit2.addEventListener("click", function () {
   value2 = p2.value;
-  p2.value = value;
+  p2.value = "";
   computer.className = "hide";
   div.addEventListener("click", turns);
 });
@@ -226,4 +235,5 @@ reset.addEventListener("click", function () {
   random.className = "random";
   divp2.className = "p2";
   computer.className = "";
+  count = 0
 });
