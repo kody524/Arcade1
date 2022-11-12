@@ -197,7 +197,6 @@ function computerTurn(event) {
 //all eventlisteners
 div.addEventListener("click", turns);
 computer.addEventListener("click", vsComputer);
-random.addEventListener("click", randomClick);
 submit1.addEventListener("click", function () {
   if (divp2.className == "hide") {
     console.log("hi")
@@ -214,6 +213,7 @@ submit2.addEventListener("click", function () {
   p2.value = "";
   computer.className = "hide";
   div.addEventListener("click", turns);
+  random.addEventListener("click", randomClick);
 });
 //reset game
 reset.addEventListener("click", function () {
