@@ -88,93 +88,128 @@ function turns(event) {
 }
 //check used to see if someone won
 function check() {
-  if (
-    (one.innerText == "X" && two.innerText == "X" && three.innerText == "X") ||
-    (one.innerText == "O" && two.innerText == "O" && three.innerText == "O")
-  ) {
+  if (one.innerText == "X" && two.innerText == "X" && three.innerText == "X"){
      count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") ||
-    (four.innerText == "O" && five.innerText == "O" && six.innerText == "O")
-  ) {
+  if (four.innerText == "X" && five.innerText == "X" && six.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (seven.innerText == "X" &&eight.innerText == "X" &&nine.innerText == "X") ||
-    (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O")
-  ) {
+  if(seven.innerText == "X" &&eight.innerText == "X" &&nine.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") ||
-    (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O")
-  ) {
+  if(one.innerText == "X" && four.innerText == "X" && seven.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") ||
-    (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O")
-  ) {
+  if 
+    (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") ||
-    (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O")
-  ) {
+  if 
+    (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") ||
-    (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O")
-  ) {
+  if 
+    (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
     disableBoard();
     return;
   }
-  if (
-    (three.innerText == "X" &&five.innerText == "X" &&seven.innerText == "X") ||
-    (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O")
-  ) {
+  if 
+    (three.innerText == "X" &&five.innerText == "X" &&seven.innerText == "X"){
     count = 0
     Names.innerText = `${value1} has won!`;
+    disableBoard();
+    return;
+  }
+  if(one.innerText == "O" && two.innerText == "O" && three.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if (four.innerText == "O" && five.innerText == "O" && six.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if(one.innerText == "O" && four.innerText == "O" && seven.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if(two.innerText == "O" && five.innerText == "O" && eight.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if(three.innerText == "O" && six.innerText == "O" && nine.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if(one.innerText == "O" && five.innerText == "O" && nine.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
+    disableBoard();
+    return;
+  }
+  if(three.innerText == "O" && five.innerText == "O" && seven.innerText == "O"){
+    count = 0
+    Names.innerText = `${value2} has won!`;
     disableBoard();
     return;
   }
   if(count===9){
     Names.innerText = "Draw"
   }
+  if(divp2.className == "hide"&&count===5){
+    Names.innerText = "Draw"
+  }
 }
 //vsComputer used if computer button is clicked
 function vsComputer() {
+  value2 = "computer"
   divp2.className = "hide";
   div.addEventListener("click", computerTurn);
+  div.addEventListener("click",check)
   div.removeEventListener("click", turns);
   random.removeEventListener("click", randomClick);
   enableBoard();
   random.className = "hide";
+  computer.className = "hide"
 }
 //computerTurn is used for player 1 picks and for computer to pick randomly
 function computerTurn(event) {
+  count = count+1
   let target = event.target;
   if (computerNumber == 0) {
     Names.innerText = `${value1}'s turn`;
@@ -188,18 +223,15 @@ function computerTurn(event) {
       } else {
         pick.innerText = "O";
         pick.disabled = true;
-        check();
         return;
       }
     }
   }
 }
-//all eventlisteners
 div.addEventListener("click", turns);
 computer.addEventListener("click", vsComputer);
 submit1.addEventListener("click", function () {
   if (divp2.className == "hide") {
-    console.log("hi")
     value1 = p1.value;
     p1.value = ""
     Names.innerText = `${value1}'s turn`
@@ -236,4 +268,6 @@ reset.addEventListener("click", function () {
   divp2.className = "p2";
   computer.className = "";
   count = 0
+  div.removeEventListener("click", computerTurn);
+  div.removeEventListener("click",check)
 });
